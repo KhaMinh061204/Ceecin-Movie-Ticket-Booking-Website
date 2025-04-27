@@ -4,7 +4,10 @@ import avengerposter from '../../assets/img/avengerposter.jpg';
 import { useNavigate } from "react-router";
 import { BookingContext } from "../Context";
 import { useContext } from "react";
+import { loadStripe } from '@stripe/stripe-js';
 import PopUP from "./PopUp";
+import { useEffect } from "react";
+const stripePromise = await loadStripe('pk_test_51RHQfxRo8s9ox9Q9YzcYdG40FOaAu2hQUb2ZVdl1GNP4B0jRnaZCbU9iFHZp8qkdURz1wFqj5PRXKR4OoHMK4A1600ZjhATk6U'); // public key
 
 function ConfirmPayment () {
   const navigate = useNavigate();
@@ -14,11 +17,31 @@ function ConfirmPayment () {
   };
 
   const {selectedSeats, seatPrice, selectedTheater, selectedTime, selectedDate, order, convertDateFormat, totalCorn, 
-    discountAmount, formatCurrency, handleConfirmClick, discountInput, movieTitle, movieUrl} = useContext(BookingContext);
+    discountAmount, formatCurrency, handleConfirmClick, discountInput, movieTitle, movieUrl,stripe, setStripe,
+    cardElement, setCardElement, setElements} = useContext(BookingContext);
 
   const totalPrice = selectedSeats.length * seatPrice + totalCorn() - discountAmount - discountInput;
   const discount = discountAmount + discountInput;
 
+  
+  useEffect(() => {
+    console.log("huhuhu");
+      async function initStripe() {
+        try {
+          const stripeInstance = await stripePromise;
+          const elementsInstance = stripeInstance.elements();
+          const cardElementInstance = elementsInstance.create('card');
+          cardElementInstance.mount('#card-element');
+    
+          setStripe(stripeInstance);
+          setElements(elementsInstance);
+          setCardElement(cardElementInstance);
+        } catch (error) {
+          console.error("Error Stripe:", error);
+        }
+      }
+    initStripe();
+  }, []);
   return (
     <div className="container">
       <div className="container_card">
@@ -86,6 +109,7 @@ function ConfirmPayment () {
       {/* Nút điều hướng */}
       <div className="buttons">
         <button className="button-back" onClick={handleBack}>Quay lại</button>
+        <div id="card-element"></div>
         <button className="button-next" onClick={handleConfirmClick}>Tiếp theo</button>
       </div>
 

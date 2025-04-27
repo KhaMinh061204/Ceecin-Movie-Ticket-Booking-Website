@@ -3,6 +3,7 @@ import TicketModel from "../models/ticket-model.js";
 import BookingModel from "../models/booking-model.js";
 import FandBModel from "../models/F&B-model.js";
 import Account from "../models/account-model.js";
+import Stripe from "stripe";
 
 export const createBooking = async (req, res) => {
     const { ticket_ids, fandb_items } = req.body;
@@ -42,7 +43,7 @@ export const createBooking = async (req, res) => {
                     return res.status(404).json({ message: `Invalid FandB ID: ${item.id}` });
                 }
                 fandbTotal += fandb.price * item.quantity;
-                validatedFandbItems.push({ id: fandb._id, quantity: item.quantity });
+                validatedFandbItems.push({ id: fandb._id,name:fandb.name, quantity: item.quantity });
             }
         }
 
@@ -134,3 +135,33 @@ export const getBooking = async (req, res) => {
         return res.status(500).json({ message: "An error occurred", error: error.message });
     }
 };
+
+const stripe = new Stripe ( process.env.STRIPE_SECRET_KEY);
+export const payment = async (req, res) => {
+    try{
+      const { products } = req.body; 
+      console.log(products);
+      const lineItems = products.map((product) => ({
+      price_data: {
+        currency: 'VND',
+        product_data: {
+          name: product.name,
+          images: [product.image],  // Đảm bảo images là mảng
+        },
+        unit_amount: product.price,  // Chuyển đổi VND sang cent
+      },
+      quantity: product.quantity,
+    }));
+      console.log("item",lineItems)
+        const session = await stripe.checkout.sessions.create({
+          payment_method_types: ['card'],
+          line_items: lineItems,
+          mode: 'payment', 
+          success_url: 'http://localhost:3001/success',  
+          cancel_url: 'http://localhost:3001/cancel',   
+        });
+        res.json({ sessionId: session.id });  
+      } catch (error) {
+        res.status(500).send('Lỗi khi tạo session thanh toán');
+      }
+    };

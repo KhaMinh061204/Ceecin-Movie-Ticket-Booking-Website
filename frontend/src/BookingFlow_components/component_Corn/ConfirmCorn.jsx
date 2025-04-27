@@ -58,8 +58,6 @@ function ConfirmCorn() {
         ticket_ids: createdTicketIds,
         fandb_items: fandbItems,
       });
-
-      console.log("Booking response:", bookingResponse);
       // alert("Tiếp tục thanh toán!");
       navigate("/payment");
     } catch (error) {

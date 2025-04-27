@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from "react-router";
 import { get, postWithFile } from "../api/api";
+import {BookingContext} from "../BookingFlow_components/Context"
 
 const MENU_ITEMS = [
     { name: 'info', label: 'Thông tin cá nhân' },
@@ -13,7 +14,7 @@ const MENU_ITEMS = [
 ];
 
 function MenuProfile() {
-    const [user, setUser] = useState({ name: "", avatar: "" });
+    const {user, setUser} = useContext (BookingContext);
     const [isUploading, setIsUploading] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();

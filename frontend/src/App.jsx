@@ -18,7 +18,8 @@ import PhimSapChieu from './components/film_sapchieu'
 import PhimDangChieu from './components/film_dangchieu'
 import AuthContent from "./layouts/auth-content";
 import ScrollToTop from './components/ScrollToTop'
-
+import SuccessPage from './pages/SuccessPage'
+import CancelPage from './pages/CancelPage'
 function App () {
   return (
     <>
@@ -45,6 +46,8 @@ function App () {
         <Route path='/phimdangchieu' element={<PhimDangChieu />} />
         <Route path='/filmlist/*' element={<FilmList />} />
         <Route path='*' element={<Navigate to='/' replace />} />
+        <Route path="/success" element={<SuccessPage />} />
+        <Route path="/cancel" element={<CancelPage />} />
       </Routes>
     </>
   )

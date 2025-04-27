@@ -14,6 +14,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@stripe/stripe-js": "^7.2.0",
     "antd": "^5.22.5",
     "axios": "^1.7.8",
     "bcryptjs": "^2.4.3",
@@ -23,8 +24,8 @@
     "dotenv": "^16.4.5",
     "html-react-parser": "^5.1.18",
     "jquery": "^3.7.1",
-    "moment": "^2.30.1",
     "lucide-react": "^0.344.0",
+    "moment": "^2.30.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-error-boundary": "^5.0.0",
@@ -34,6 +35,7 @@
     "react-router": "^6.26.1",
     "react-router-dom": "^6.26.1",
     "socket.io-client": "^4.8.1",
+    "stripe": "^18.0.0",
     "tea.tail.Reactjs.ui": "file:"
   },
   "devDependencies": {
