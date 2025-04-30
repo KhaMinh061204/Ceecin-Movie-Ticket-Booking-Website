@@ -13,8 +13,7 @@ function ContentFilmList(){
         const fetchMovies=async()=>{
         try{
             const res=await getAllMovies();
-            console.log(res.movies)
-            setFilm(res.movies);
+            setFilm(res);
         }
         catch (error) {
             console.error("Error while fetching all movie: ",error )

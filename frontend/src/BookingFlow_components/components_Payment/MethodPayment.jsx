@@ -38,8 +38,8 @@ function MethodPayment() {
     } else {
       const isDisabled = 
         (selectedMethod === "card" || selectedMethod === "bank")
-          ? (/^\d{10,}$/.test(cardNumber) && /^\d{2}\/\d{2}$/.test(expiry) && /^\d{3}$/.test(cvv)) // Kiểm tra xem các giá trị có hợp lệ không
-          : /^\d{10,}$/.test(cardNumber); // Chỉ cần kiểm tra cardNumber nếu là phương thức khác
+          ? true // Kiểm tra xem các giá trị có hợp lệ không
+          : false; // Chỉ cần kiểm tra cardNumber nếu là phương thức khác
       setIsButtonDisabled(isDisabled);
     }
   }, [selectedMethod, cardNumber, expiry, cvv, setIsButtonDisabled]);
@@ -65,7 +65,7 @@ function MethodPayment() {
       {/* Hiển thị thông tin thẻ nếu chọn "Card" */}
       {(selectedMethod === "card" || selectedMethod === 'bank') ? (
         <div className="card-info">
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Mã số thẻ</label>
             <input type="text" placeholder="Input numbers card (>10 numbers)" onChange={(e) => setCardNumber(e.target.value)}/>
           </div>
@@ -78,7 +78,7 @@ function MethodPayment() {
               <label>CVV</label>
               <input type="text" placeholder="CVV (Example: 271)" onChange={(e) => setCvv(e.target.value)}/>
             </div>
-          </div>
+          </div> */}
         </div>
       ) : (
         <div className="form-group">

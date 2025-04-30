@@ -25,7 +25,6 @@ function ConfirmPayment () {
 
   
   useEffect(() => {
-    console.log("huhuhu");
       async function initStripe() {
         try {
           const stripeInstance = await stripePromise;
