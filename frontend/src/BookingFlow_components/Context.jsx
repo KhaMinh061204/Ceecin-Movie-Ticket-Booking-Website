@@ -89,7 +89,7 @@ export const BookingProvider = ({ children }) => {
 
     if (isButtonDisabled) {
       try {
-        const response = await fetch('http://localhost:8081/booking/create-payment-intent', {
+        const response = await fetch('https://ceecine.onrender.com/booking/create-payment-intent', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
