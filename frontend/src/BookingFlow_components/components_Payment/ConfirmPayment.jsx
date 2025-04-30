@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { loadStripe } from '@stripe/stripe-js';
 import PopUP from "./PopUp";
 import { useEffect } from "react";
-const stripePromise = await loadStripe('pk_test_51RHQfxRo8s9ox9Q9YzcYdG40FOaAu2hQUb2ZVdl1GNP4B0jRnaZCbU9iFHZp8qkdURz1wFqj5PRXKR4OoHMK4A1600ZjhATk6U'); // public key
+const stripePromise = loadStripe('pk_test_51RHQfxRo8s9ox9Q9YzcYdG40FOaAu2hQUb2ZVdl1GNP4B0jRnaZCbU9iFHZp8qkdURz1wFqj5PRXKR4OoHMK4A1600ZjhATk6U'); // public key
 
 function ConfirmPayment () {
   const navigate = useNavigate();
