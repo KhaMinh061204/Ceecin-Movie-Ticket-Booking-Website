@@ -136,9 +136,9 @@ export const getBooking = async (req, res) => {
     }
 };
 
-const stripe = new Stripe ( process.env.STRIPE_SECRET_KEY);
 export const payment = async (req, res) => {
     try{
+      const stripe = new Stripe ( process.env.STRIPE_SECRET_KEY);
       const { products } = req.body; 
       console.log(products);
       const lineItems = products.map((product) => ({

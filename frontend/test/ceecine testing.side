@@ -1,0 +1,727 @@
+{
+  "id": "d3ee5df0-218f-41be-92f4-63c708be7d26",
+  "version": "2.0",
+  "name": "ceecine testing",
+  "url": "http://localhost:3001",
+  "tests": [{
+    "id": "a9c1a498-b5c6-4aa4-88e6-02e4fa8a11c9",
+    "name": "User Login",
+    "commands": [{
+      "id": "858f221a-c5d6-4c84-b276-06bf91cc05db",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "db5c2892-2738-4ea2-a4ac-6063cc4bff2f",
+      "comment": "",
+      "command": "click",
+      "target": "css=#login > p",
+      "targets": [
+        ["css=#login > p", "css:finder"],
+        ["xpath=//button[@id='login']/p", "xpath:idRelative"],
+        ["xpath=//header/div/div[3]/button/p", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "57e81844-6c36-4bd9-8986-35e4b44ed1ba",
+      "comment": "",
+      "command": "click",
+      "target": "id=mailinp",
+      "targets": [
+        ["id=mailinp", "id"],
+        ["css=#mailinp", "css:finder"],
+        ["xpath=//input[@id='mailinp']", "xpath:attributes"],
+        ["xpath=//div[@id='login-popup']/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6fae3dc4-6ae0-413d-9fdf-58573afdcd4e",
+      "comment": "",
+      "command": "type",
+      "target": "id=mailinp",
+      "targets": [
+        ["id=mailinp", "id"],
+        ["css=#mailinp", "css:finder"],
+        ["xpath=//input[@id='mailinp']", "xpath:attributes"],
+        ["xpath=//div[@id='login-popup']/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "test@gmail.com"
+    }, {
+      "id": "e628a6f9-80b8-46ce-bfed-bbabc58cf949",
+      "comment": "",
+      "command": "type",
+      "target": "id=passinp",
+      "targets": [
+        ["id=passinp", "id"],
+        ["css=#passinp", "css:finder"],
+        ["xpath=//input[@id='passinp']", "xpath:attributes"],
+        ["xpath=//div[@id='login-popup']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": "1234!@#$qwerQWER"
+    }, {
+      "id": "a238b3ab-619b-473c-a01d-a86358e91938",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=passinp",
+      "targets": [
+        ["id=passinp", "id"],
+        ["css=#passinp", "css:finder"],
+        ["xpath=//input[@id='passinp']", "xpath:attributes"],
+        ["xpath=//div[@id='login-popup']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "f37e002f-e66e-48cd-94ba-f06141b69fc0",
+      "comment": "",
+      "command": "click",
+      "target": "css=#loginbtn > p",
+      "targets": [
+        ["css=#loginbtn > p", "css:finder"],
+        ["xpath=//button[@id='loginbtn']/p", "xpath:idRelative"],
+        ["xpath=//div[4]/div[3]/button/p", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f05955e-0535-4cc9-b8e7-8099c439b2d5",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Đăng nhập thành công!",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "cd58aca8-3e96-4de7-978a-908cb426d751",
+    "name": "User Signup",
+    "commands": [{
+      "id": "5a7c9d68-6ab1-4fa2-8aa4-d2d7fea5171a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "75458cc5-d965-4bb2-8ecd-14757e42b461",
+      "comment": "",
+      "command": "click",
+      "target": "css=#login > p",
+      "targets": [
+        ["css=#login > p", "css:finder"],
+        ["xpath=//button[@id='login']/p", "xpath:idRelative"],
+        ["xpath=//header/div/div[3]/button/p", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac9c20c2-e739-4143-bcb1-55e0d2179303",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Đăng ký ngay",
+      "targets": [
+        ["linkText=Đăng ký ngay", "linkText"],
+        ["css=.w-100:nth-child(11) .nav-auth", "css:finder"],
+        ["xpath=//a[contains(text(),'Đăng ký ngay')]", "xpath:link"],
+        ["xpath=//div[@id='login-popup']/div[8]/p/a", "xpath:idRelative"],
+        ["xpath=//div[8]/p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Đăng ký ngay')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6b3e90a0-3082-47ec-a691-cdbeb3e58906",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=#regis-popup > .w-100:nth-child(4) > .inp_cus", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div[@id='regis-popup']/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e8a592e-e9e8-404d-b83b-b03acb4a2c87",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=#regis-popup > .w-100:nth-child(4) > .inp_cus", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div[@id='regis-popup']/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "nguyen van a"
+    }, {
+      "id": "98068134-c238-4096-80dd-7cc996bed6d6",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mb-30:nth-child(5) > .inp_cus", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='regis-popup']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/input", "xpath:position"]
+      ],
+      "value": "test03@gmail.com"
+    }, {
+      "id": "c71b52c1-3eda-4a96-bb81-f71f1a6e8b8f",
+      "comment": "",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.w-100:nth-child(6) > .inp_cus", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//div[@id='regis-popup']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "0933333333"
+    }, {
+      "id": "bf3aef1a-3371-4590-abed-523475dca837",
+      "comment": "",
+      "command": "click",
+      "target": "name=dateOfBirth",
+      "targets": [
+        ["name=dateOfBirth", "name"],
+        ["css=.w-100:nth-child(7) > .inp_cus", "css:finder"],
+        ["xpath=//input[@name='dateOfBirth']", "xpath:attributes"],
+        ["xpath=//div[@id='regis-popup']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8992a6d0-189e-46b0-b2c3-b9a953064310",
+      "comment": "",
+      "command": "type",
+      "target": "name=dateOfBirth",
+      "targets": [
+        ["name=dateOfBirth", "name"],
+        ["css=.w-100:nth-child(7) > .inp_cus", "css:finder"],
+        ["xpath=//input[@name='dateOfBirth']", "xpath:attributes"],
+        ["xpath=//div[@id='regis-popup']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "2001-07-17"
+    }, {
+      "id": "de1b6529-36a0-48f5-b5f6-3ffcef585447",
+      "comment": "",
+      "command": "click",
+      "target": "name=gender",
+      "targets": [
+        ["name=gender", "name"],
+        ["css=.flex:nth-child(1) > .m-0", "css:finder"],
+        ["xpath=//input[@name='gender']", "xpath:attributes"],
+        ["xpath=//div[@id='regis-popup']/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[5]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa2040c5-1d08-4ddd-9449-3276e6383df5",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.w-100:nth-child(9) > .inp_cus", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='regis-popup']/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c051f6e-af32-4025-8a5c-4fa827ce8722",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.w-100:nth-child(9) > .inp_cus", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='regis-popup']/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "1234!@#$qwerQWER"
+    }, {
+      "id": "5c74453f-7631-4705-89ed-df19a2195c08",
+      "comment": "",
+      "command": "type",
+      "target": "name=confirmPassword",
+      "targets": [
+        ["name=confirmPassword", "name"],
+        ["css=.mb-10 > .inp_cus", "css:finder"],
+        ["xpath=//input[@name='confirmPassword']", "xpath:attributes"],
+        ["xpath=//div[@id='regis-popup']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "1234!@#$qwerQWER"
+    }, {
+      "id": "32789d87-b360-4694-891b-c4a89117ca13",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-30:nth-child(1)",
+      "targets": [
+        ["css=.mb-30:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='regis-popup']/div[8]/button", "xpath:idRelative"],
+        ["xpath=//div[8]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Đăng ký')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e0d53eba-f6b3-4527-a497-5453c7add06e",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Đăng ký thành công!",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e26e6615-cf4b-4597-8fa0-e5ef000a9955",
+    "name": "Search Movie: Godzilla",
+    "commands": [{
+      "id": "924c4f00-1284-45fa-a2e3-caf6d948cbb9",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e5529595-be5f-46c7-9dfb-9bbb1174d286",
+      "comment": "",
+      "command": "click",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "b855dcd6-c8d1-4293-9784-c01e971a32ea",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c06e6c8-425c-4c25-80ae-f6a4febb1192",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "40e2b203-4456-4376-9be7-9a7eca180dfe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hidden input",
+      "targets": [
+        ["css=.hidden input", "css:finder"],
+        ["xpath=(//input[@value=''])[11]", "xpath:attributes"],
+        ["xpath=//div[@id='auth_btn']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "712e177b-a3ae-40a1-a44d-c6affe828d86",
+      "comment": "",
+      "command": "type",
+      "target": "css=.hidden input",
+      "targets": [
+        ["css=.hidden input", "css:finder"],
+        ["xpath=//input[@value='godzilla']", "xpath:attributes"],
+        ["xpath=//div[@id='auth_btn']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "godzilla"
+    }, {
+      "id": "c1301123-e01f-4045-ae91-83442be54d6a",
+      "comment": "",
+      "command": "click",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "91b4455c-a848-4d88-b623-1f6d357378f6",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3041c82-7a68-4f81-a3c9-721adb95dc5e",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc4d905a-2455-4d98-b1f8-61d6d361ad3d",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e208c84-678e-402e-adb8-5f61f1ae2e0d",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class='product-name' and normalize-space()='Godzillax Kong: Đế chế mới']",
+      "targets": [
+        ["css=.product-name", "css:finder"],
+        ["xpath=//div[@id='product-list']/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e7be1cba-5bdf-4d87-9890-674fd99c0634",
+    "name": "Search Movie: Alien",
+    "commands": [{
+      "id": "6b2bba48-46eb-472e-8c68-9e56e3741674",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fd0a5410-310f-428a-aa08-290f9076d8a1",
+      "comment": "",
+      "command": "click",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "52884de3-8787-43fe-b4db-c2598f6f906a",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "f897c177-31b1-44f9-8e68-9bd620c158d1",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "173649fa-6c96-4b17-a9e1-46b41e9f4770",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hidden input",
+      "targets": [
+        ["css=.hidden input", "css:finder"],
+        ["xpath=(//input[@value=''])[11]", "xpath:attributes"],
+        ["xpath=//div[@id='auth_btn']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b955f56d-649b-4f8e-bc71-885bf7120a6e",
+      "comment": "",
+      "command": "type",
+      "target": "css=.hidden input",
+      "targets": [
+        ["css=.hidden input", "css:finder"],
+        ["xpath=//input[@value='godzilla']", "xpath:attributes"],
+        ["xpath=//div[@id='auth_btn']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "alien"
+    }, {
+      "id": "eded0df2-d367-4c31-9c3e-81d414d18655",
+      "comment": "",
+      "command": "click",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "7468d091-424c-49f9-b7af-1b91d69dc461",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "003ffcfe-e7da-433f-9533-89044caac137",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee3191f9-f9e2-4944-8c97-c827fe5ece34",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "455c525f-4ac7-41fa-bbea-22167a2726d2",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class='product-name' and normalize-space()='Alien: Romulus']",
+      "targets": [
+        ["css=.product-name", "css:finder"],
+        ["xpath=//div[@id='product-list']/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8567071e-dd67-4dc8-a162-577e47b9deda",
+    "name": "View Movie Info: Avenger Infinity War",
+    "commands": [{
+      "id": "85aade2c-5266-430c-9143-49e2499602fe",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "af6963cd-cb73-4af1-a408-71932fbe738a",
+      "comment": "",
+      "command": "click",
+      "target": "css=#search path",
+      "targets": [
+        ["css=#search path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "0ef08180-e028-4096-b9a4-f424d9ec720c",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#search path",
+      "targets": [
+        ["css=#search path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "64915846-c40f-4049-a3d3-7fb768f6cb8c",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#search path",
+      "targets": [
+        ["css=#search path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "7be9a81a-94f4-40a3-8742-6c377617341b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hidden input",
+      "targets": [
+        ["css=.hidden input", "css:finder"],
+        ["xpath=(//input[@value=''])[11]", "xpath:attributes"],
+        ["xpath=//div[@id='auth_btn']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b2a8788-f27f-44fb-8e04-e00dba468e63",
+      "comment": "",
+      "command": "type",
+      "target": "css=.hidden input",
+      "targets": [
+        ["css=.hidden input", "css:finder"],
+        ["xpath=//input[@value='avenger']", "xpath:attributes"],
+        ["xpath=//div[@id='auth_btn']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "avenger"
+    }, {
+      "id": "187f966d-b4a8-409b-84fb-a031a3f10e71",
+      "comment": "",
+      "command": "click",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "07ec4621-cd20-426e-a0fb-0e30d4e92518",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#search > svg",
+      "targets": [
+        ["css=#search > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "634c8cd5-c9db-41ca-aab5-43a0e6bc46f7",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=search",
+      "targets": [
+        ["id=search", "id"],
+        ["css=#search", "css:finder"],
+        ["xpath=//button[@id='search']", "xpath:attributes"],
+        ["xpath=//div[@id='auth_btn']/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ed870c8-436f-4b3c-8cfa-93b1230fc773",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn_film:nth-child(2) > p",
+      "targets": [
+        ["css=.btn_film:nth-child(2) > p", "css:finder"],
+        ["xpath=//div[@id='product-list']/div[2]/div/div[3]/div/button[2]/p", "xpath:idRelative"],
+        ["xpath=//button[2]/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Chi tiết')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "55d18683-6d10-4809-b5ce-92331d0adb47",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//h1[contains(.,'Avengers: Infinity War 1')]",
+      "targets": [
+        ["css=.p-0", "css:finder"],
+        ["xpath=//div[@id='root']/section[2]/div/div[2]/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Avengers: Infinity War 1')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c07707c-83f1-4334-bc1c-41655cddbb48",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//img[@alt='Avengers: Infinity War 1']",
+      "targets": [
+        ["css=div > .h-100", "css:finder"],
+        ["xpath=//img[@alt='Avengers: Infinity War 1']", "xpath:img"],
+        ["xpath=//div[@id='root']/section[2]/div/div/img", "xpath:idRelative"],
+        ["xpath=//section[2]/div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0903b870-664c-4638-894c-1825bc7695e8",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//b[contains(.,'🕒149 phút')]",
+      "targets": [
+        ["css=.flex:nth-child(1) > p > b", "css:finder"],
+        ["xpath=//div[@id='root']/section[2]/div/div[2]/div[2]/div/div/p/b", "xpath:idRelative"],
+        ["xpath=//p/b", "xpath:position"],
+        ["xpath=//b[contains(.,'🕒149 phút')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "682b3c62-c929-4e39-951e-c366dc5ec255",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//b[contains(.,'📅27/04/2018')]",
+      "targets": [
+        ["css=.cenhor:nth-child(2) b", "css:finder"],
+        ["xpath=//div[@id='root']/section[2]/div/div[2]/div[2]/div/div[2]/p/b", "xpath:idRelative"],
+        ["xpath=//div[2]/p/b", "xpath:position"],
+        ["xpath=//b[contains(.,'📅27/04/2018')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "58b332c6-9f7c-46d8-bb3e-516d1f839066",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Nhà sản xuất: Anthony Russo')]",
+      "targets": [
+        ["css=.f-col > p:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='root']/section[2]/div/div[2]/div[2]/div[2]/p", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Nhà sản xuất: Anthony Russo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb3ccf51-ae42-4e18-a058-1507c9c94a7a",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Thể loại: Phiêu Lưu, Hành Động, Khoa Học')]",
+      "targets": [
+        ["css=div > .gap10 > p:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/section[2]/div/div[2]/div[2]/div[2]/p[2]", "xpath:idRelative"],
+        ["xpath=//p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'Thể loại: Phiêu Lưu, Hành Động, Khoa Học')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "93b97ce4-1bc8-4024-96eb-502695c8e187",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//b[contains(.,'Robert Downey Jr., Chris Hemsworth, Mark Ruffalo, Chris Evans, Scarlett Johansson, Benedict Cumberbatch, Tom Holland, Chadwick Boseman, Don Cheadle, Zoe Saldaña, Karen Gillan, Elizabeth Olsen, Paul Bettany, Anthony Mackie, Sebastian Stan, Tom Hiddleston')]",
+      "targets": [
+        ["css=p:nth-child(3) > b", "css:finder"],
+        ["xpath=//div[@id='root']/section[2]/div/div[2]/div[2]/div[2]/p[3]/b", "xpath:idRelative"],
+        ["xpath=//p[3]/b", "xpath:position"],
+        ["xpath=//b[contains(.,'Robert Downey Jr., Chris Hemsworth, Mark Ruffalo, Chris Evans, Scarlett Johansson, Benedict Cumberbatch, Tom Holland, Chadwick Boseman, Don Cheadle, Zoe Saldaña, Karen Gillan, Elizabeth Olsen, Paul Bettany, Anthony Mackie, Sebastian Stan, Tom Hiddleston')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6407336a-dd26-41cd-a7c2-43be9115ff03",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//p[contains(.,'Sau chuyến hành trình độc nhất vô nhị không ngừng mở rộng và phát triển vụ trũ điện ảnh Marvel, bộ phim Avengers: Cuộc Chiến Vô Cực sẽ mang đến màn ảnh trận chiến cuối cùng khốc liệt nhất mọi thời đại. Biệt đội Avengers và các đồng minh siêu anh hùng của họ phải chấp nhận hy sinh tất cả để có thể chống lại kẻ thù hùng mạnh Thanos trước tham vọng hủy diệt toàn bộ vũ trụ của hắn')]",
+      "targets": [
+        ["css=.mt-50 > p", "css:finder"],
+        ["xpath=//div[@id='root']/section[2]/div[2]/p", "xpath:idRelative"],
+        ["xpath=//section[2]/div[2]/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Sau chuyến hành trình độc nhất vô nhị không ngừng mở rộng và phát triển vụ trũ điện ảnh Marvel, bộ phim Avengers: Cuộc Chiến Vô Cực sẽ mang đến màn ảnh trận chiến cuối cùng khốc liệt nhất mọi thời đại. Biệt đội Avengers và các đồng minh siêu anh hùng của họ phải chấp nhận hy sinh tất cả để có thể chống lại kẻ thù hùng mạnh Thanos trước tham vọng hủy diệt toàn bộ vũ trụ của hắn')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4cdc6db3-4449-44a9-9763-300d8aa56d96",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["cd58aca8-3e96-4de7-978a-908cb426d751", "a9c1a498-b5c6-4aa4-88e6-02e4fa8a11c9"]
+  }, {
+    "id": "2d4a27c0-d7df-47f0-88cd-8cad315f596c",
+    "name": "Search Movies",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["e26e6615-cf4b-4597-8fa0-e5ef000a9955", "e7be1cba-5bdf-4d87-9890-674fd99c0634"]
+  }, {
+    "id": "e7606298-b0cc-4386-ab59-c98aa819a2ab",
+    "name": "View Movie Info",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8567071e-dd67-4dc8-a162-577e47b9deda"]
+  }],
+  "urls": ["http://localhost:3001/"],
+  "plugins": []
+}
