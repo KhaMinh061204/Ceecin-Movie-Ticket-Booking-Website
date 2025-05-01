@@ -2,6 +2,7 @@ import face from "../assets/img/face.png"
 import yt from "../assets/img/youtube.png"
 import twt from "../assets/img/twt.png"
 import phone from "../assets/img/phone.png"
+import React from 'react'; 
 
 function copyRight(){
 

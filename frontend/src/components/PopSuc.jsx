@@ -1,3 +1,4 @@
+import React from 'react'; 
 function PopSuc(){
     return( 
     <div className="success hide success_popup_noti">

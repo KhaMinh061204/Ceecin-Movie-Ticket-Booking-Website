@@ -1,6 +1,7 @@
 import logoicon from "../assets/img/icon-logo.png";
 import { post } from "../api/api";
 import { useState } from "react";
+import React from 'react'; 
 
 function Otp(prop) {
 

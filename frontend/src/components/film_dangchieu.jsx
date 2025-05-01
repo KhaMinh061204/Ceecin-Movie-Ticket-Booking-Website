@@ -6,7 +6,7 @@ import FilterSearch from '../components/filter-search'
 import Header from '../components/header'
 import Promolist from '../components/promotion_list'
 import { useLocation } from 'react-router-dom'
-
+import React from 'react'; 
 import { getPromotionInHompage } from '../api/api'
 import Navbar from '../components/nav-bar'
 

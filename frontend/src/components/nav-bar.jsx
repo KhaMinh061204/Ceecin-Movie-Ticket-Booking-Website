@@ -6,6 +6,7 @@ import logo from '../assets/img/logo.png';
 import DropDownMenu from '../components/drop-down-menu';
 import SearchBar from './SearchBar';
 import { get } from '../api/api';
+import React from 'react'; 
 
 function Navbar() {
     const navigate = useNavigate();

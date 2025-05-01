@@ -1,4 +1,5 @@
 import Cinema from "./cinema";
+import React from 'react'; 
 
 function OrderSchedule(){
     return(

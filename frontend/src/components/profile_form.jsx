@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useMediaQuery } from 'react-responsive';
 import { get, put } from "../api/api";
+import React from 'react'; 
 
 function ProfileForm() {
     const isMobile = useMediaQuery({ maxWidth: 767 });

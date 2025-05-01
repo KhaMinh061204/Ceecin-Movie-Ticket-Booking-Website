@@ -7,7 +7,7 @@ import Header from '../components/header'
 import Promolist from '../components/promotion_list'
 import { useLocation } from 'react-router-dom'
 import Navbar from '../components/nav-bar'
-
+import React from 'react'; 
 import { getPromotionInHompage } from '../api/api'
 
 function PhimSapChieu () {

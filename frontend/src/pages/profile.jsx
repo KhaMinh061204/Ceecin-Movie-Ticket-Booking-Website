@@ -5,6 +5,7 @@ import ContentProfilePage from "../layouts/content_profile_page";
 import Navbar from "../components/nav-bar"
 import Footer from "../components/footer";
 import ContentNotifyPage from "../layouts/content-notification-page";
+import React from 'react'; 
 
 function Profile(){
     return(

@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import React from 'react'; 
 
 // Constants for slide configuration
 const SLIDE_COUNT = 3;  // Total number of slides

@@ -5,6 +5,7 @@ import ggcol from '../assets/img/google-color.png';
 import { useEffect, useState } from "react";
 import $ from "jquery";
 import { post } from "../api/api";
+import React from 'react'; 
 
 function Register(prop) {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);

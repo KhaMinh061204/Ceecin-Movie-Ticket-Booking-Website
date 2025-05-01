@@ -4,6 +4,7 @@ import { getMoviesInHomepage, getAllTheater, getShowtimesByTheaterAndMovie } fro
 import { BookingContext } from "../BookingFlow_components/Context";
 import { useNavigate } from "react-router-dom";
 import $ from 'jquery'
+import React from 'react'; 
   
 function FilterSearch(prop) {
     const navigate = useNavigate();

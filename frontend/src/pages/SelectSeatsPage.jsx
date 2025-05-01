@@ -5,7 +5,6 @@ import { BookingContext } from "../BookingFlow_components/Context";
 import SelectSeats from "../BookingFlow_components/components_SelectSeats/SelectSeats";
 import Navbar from "../components/nav-bar"
 
-
 // Custom error fallback for object rendering errors
 function ErrorFallback({error}) {
   const errorMessage = error.message || "An unknown error occurred";

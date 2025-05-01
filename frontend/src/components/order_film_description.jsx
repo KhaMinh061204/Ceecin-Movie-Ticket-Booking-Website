@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getMovieDetails } from "../api/api.js"; // Import hàm API
 import $ from "jquery"
+import React from 'react'; 
 
 function OrderFilmDescript() {
   const { movieId } = useParams();

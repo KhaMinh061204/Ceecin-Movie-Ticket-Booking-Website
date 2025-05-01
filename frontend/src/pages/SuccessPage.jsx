@@ -4,6 +4,7 @@ import "../BookingFlow_components/components_Payment/PopUp.css";
 import { BookingContext } from "../BookingFlow_components/Context";
 import logo from "../assets/img/logo.png";
 import qrCodeImage from "../assets/img/QR_code.png";
+
 const PopUP = () => {
   const navigate = useNavigate();
   const [bookingData, setBookingData] = useState(null);

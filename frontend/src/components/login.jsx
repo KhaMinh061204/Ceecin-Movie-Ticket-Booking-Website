@@ -5,6 +5,7 @@ import ggcol from '../assets/img/google-color.png';
 import { useState, useEffect } from "react";
 import $ from "jquery";
 import { post } from "../api/api";
+import React from 'react'; 
 
 function Login(prop) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false); // State để quản lý trạng thái mật khẩu

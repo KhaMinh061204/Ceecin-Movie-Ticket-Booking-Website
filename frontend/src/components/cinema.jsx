@@ -1,3 +1,4 @@
+import React from 'react'; 
 function Cinema(){
     return(
         <div className="flex f-col gap10" style={{"border":"1px solid white","borderRadius":"5px","fontSize":"14px","color":"white","backgroundColor":"#701D34", "padding":"2%"}}>

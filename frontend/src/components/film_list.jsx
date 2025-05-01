@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router'
 import Product from './product'
 import $ from "jquery"
+import React from 'react'; 
 
 function Filmlist (prop) {
   const nav = useNavigate()

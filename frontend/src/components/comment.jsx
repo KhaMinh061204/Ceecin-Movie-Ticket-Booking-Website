@@ -1,3 +1,4 @@
+import React from 'react'; 
 function Comment(){
     return(
         <div className="flex cenver starthor gap20 w-100" style={{"padding":"1%"}}>
