@@ -14,6 +14,7 @@ Ceecin Movie Ticket Booking Website là một website giúp người dùng dễ 
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Authentication**: JWT (JSON Web Token)
+- **Đóng gói**: Docker
 
 ## 🚀 Cài đặt và chạy dự án
 ### 🔧 1. Clone repository
