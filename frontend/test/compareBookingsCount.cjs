@@ -53,10 +53,6 @@ async function runTest() {
   console.log(`DB bookings: ${bookingCount}, UI bookings: ${uiBookingCount}`);
 
   // so sánh
-  // console.assert(
-  //   bookingCount === uiBookingCount,
-  //   "số lượng vé đã đặt trong database không khớp với số lượng được hiển thị trên webpage"
-  // );
   try {
     assert.strictEqual(bookingCount, uiBookingCount);
     console.log("✅ PASS");
