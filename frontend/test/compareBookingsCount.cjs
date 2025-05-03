@@ -1,5 +1,6 @@
 const { Builder, By, until } = require("selenium-webdriver");
 const { MongoClient, ObjectId } = require("mongodb");
+const assert = require('assert');
 
 async function runTest() {
   const userEmail = "test@gmail.com"; // email
@@ -21,7 +22,7 @@ async function runTest() {
 
   console.log(bookingCount);
 
-  // login trước
+  // trước tiên cần login
   const driver = await new Builder().forBrowser("chrome").build();
   // 1 | open | / |
   await driver.get("http://localhost:3001/");
@@ -41,7 +42,6 @@ async function runTest() {
   const alert = await driver.switchTo().alert();
   await alert.accept(); // đóng alert
   await driver.get("http://localhost:3001/profile/myorder"); // đi tới trang hiển thị vé đã đặt
-  console.log('------------------------------D O N E   H E R E-------------------------------');
 
   // dùng selenium để đếm số lượng vé đã đặt hiển thị trên webpage
   // mỗi vé đã đặt được hiển thị trên UI với class là `.film-order-container`
@@ -52,11 +52,17 @@ async function runTest() {
 
   console.log(`DB bookings: ${bookingCount}, UI bookings: ${uiBookingCount}`);
 
-  // so sánh 
-  console.assert(
-    bookingCount === uiBookingCount,
-    "Mismatch between DB and UI booking count"
-  );
+  // so sánh
+  // console.assert(
+  //   bookingCount === uiBookingCount,
+  //   "số lượng vé đã đặt trong database không khớp với số lượng được hiển thị trên webpage"
+  // );
+  try {
+    assert.strictEqual(bookingCount, uiBookingCount);
+    console.log("✅ PASS");
+  } catch (err) {
+    console.error("❌ FAIL:", err.message);
+  }
 
   await driver.quit();
   await client.close();
