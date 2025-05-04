@@ -2,7 +2,7 @@
 // import $             from "jquery";
 import { useEffect } from "react";
 import Slide from "../components/slide";
-
+import React from 'react'; 
 function Header(){
 
 

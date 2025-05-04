@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import comm from "../utils/common";
 import $ from "jquery"
+import React from 'react'; 
 
 function Product(prop){
     const navigate = useNavigate(); 

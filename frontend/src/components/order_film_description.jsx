@@ -83,15 +83,17 @@ function OrderFilmDescript() {
             </video> */}
             <iframe className="chilPopupTrailer" style={{"width": "50dvw", "height":"55dvh"}} src={movie?.vid_url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </section>
-      <div
-        className="flex w-100 cenver"
-        style={{
-          position: "relative",
-          padding: "5% 15%",
-          gap: "30px",
-          transform: "translateY(-60px)",
-        }}
-      >
+        <div
+  className="flex w-100 cenver"
+  style={{
+    position: "relative",
+    padding: "5% 15%",
+    gap: "30px",
+    marginBottom: "60px",
+    display: window.innerWidth >= 768 ? "flex" : "block"
+  }}
+>
+
         <div style={{ flex: "1" }}>
           <img
             className="w-100 h-100"
@@ -110,7 +112,7 @@ function OrderFilmDescript() {
               color: "white",
               fontSize: "18px",
               cursor: "pointer",
-              fontWeight: "bold"
+              fontWeight: "bold",
             }}
           >
             Đặt vé ngay
@@ -161,7 +163,7 @@ function OrderFilmDescript() {
           </div>
         </div>
       </div>
-      <div className="flex f-col w-100 cenver mt-50" style={{"position":"relative","padding":"0 5%","gap":"10px", "transform":"translateY(-60px)"}}>
+      <div className="flex f-col w-100 cenver mt-50" style={{"position":"relative","padding":"0 5%","gap":"10px"}}>
       <div className="flex cenhor gap10">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 60 60" fill="none">
           <path d="M20 30.5H37.5M20 40.5H30.95M40 10.05C48.325 10.5 52.5 13.575 52.5 25V40C52.5 50 50 55 37.5 55H22.5C10 55 7.5 50 7.5 40V25C7.5 13.6 11.675 10.5 20 10.05M25 15H35C40 15 40 12.5 40 10C40 5 37.5 5 35 5H25C22.5 5 20 5 20 10C20 15 22.5 15 25 15Z" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>

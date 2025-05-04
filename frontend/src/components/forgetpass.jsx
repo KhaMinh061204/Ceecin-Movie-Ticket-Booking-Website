@@ -1,6 +1,7 @@
 import logoicon from "../assets/img/icon-logo.png";
 import { useState } from "react";
 import { post } from "../api/api";
+import React from 'react'; 
 function ForgetPass(prop) {
 
   const [email, setEmail] = useState("");

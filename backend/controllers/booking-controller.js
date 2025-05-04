@@ -160,18 +160,14 @@ export const payment = async (req, res) => {
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment', 
-            success_url: 'http://localhost:3001/success',  
-            cancel_url: 'http://localhost:3001/cancel',  
+            success_url: 'https://ceecine.vercel.app/success',  
+            cancel_url: 'https://ceecine.vercel.app/cancel',  
             metadata: {
                 bookingId: bookingId,  // Sử dụng bookingId đã được truyền vào request
             },
         });
-
-        // Trả về sessionId để người dùng chuyển tới trang thanh toán
-        res.json({ sessionId: session.id });
-
-    } catch (error) {
-        // Nếu có lỗi, trả về thông báo lỗi và in log lỗi ra console
+        res.json({ sessionId: session.id });  
+      } catch (error) {
         res.status(500).send('Lỗi khi tạo session thanh toán');
         console.error("Lỗi khi tạo session thanh toán:", error);
     }

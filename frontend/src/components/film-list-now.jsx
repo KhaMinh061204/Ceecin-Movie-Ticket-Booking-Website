@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Product from "./product";
-
+import React from 'react'; 
 function FilmListNow(prop){
 
     return(

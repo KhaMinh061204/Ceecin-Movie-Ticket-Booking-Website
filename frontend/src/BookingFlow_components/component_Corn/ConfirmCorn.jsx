@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { BookingContext } from "../Context";
 import { useContext, useState } from "react";
 import { createTicket, createBooking } from "../../api/api";
+import React from 'react'; 
 
 function ConfirmCorn() {
   const {

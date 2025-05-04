@@ -4,6 +4,7 @@ import ConfirmPayment from "./ConfirmPayment"
 import MethodPayment from "./MethodPayment"
 import "./Payment.css"
 import Promotion from "./Promotion"
+import React from 'react'; 
 
 function Payment() {
   return (

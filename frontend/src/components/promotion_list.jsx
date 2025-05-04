@@ -1,4 +1,4 @@
-
+import React from 'react'; 
 function Promolist(prop){
     return(
         <section className="mt-50 mb-50">

@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { slideData } from "../constants/slideData";
-
+import React from 'react'; 
 /**
  * Slide component for displaying video carousel
  */

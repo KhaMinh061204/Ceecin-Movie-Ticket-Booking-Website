@@ -1,3 +1,4 @@
+import React from 'react'; 
 function PopErr(){
     return( 
         <div className="error hide error_popup_noti">

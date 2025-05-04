@@ -5,6 +5,7 @@ import Otp from "../components/opt";
 import Register from "../components/register";
 import $ from "jquery"
 import Repass from "../components/repass";
+import React from 'react'; 
 
 function AuthContent(){
 

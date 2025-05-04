@@ -1,4 +1,5 @@
 // Ví dụ về trang cancel trong React
+import React from 'react'; 
 function CancelPage() {
     return (
       <div>

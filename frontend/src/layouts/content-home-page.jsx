@@ -11,6 +11,7 @@ import {
   getPromotionInHompage,
   getSearchMovie
 } from '../api/api'
+import React from 'react'; 
 
 function contentProductPage () {
   const nav = useNavigate();

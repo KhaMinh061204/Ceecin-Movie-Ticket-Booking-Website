@@ -1,6 +1,7 @@
 import trailer1 from "../assets/videos/trailer1.mp4";
 import trailer2 from "../assets/videos/trailer2.mp4";
 import trailer3 from "../assets/videos/trailer3.mp4";
+import React from 'react'; 
 
 export const slideData = [
     {

@@ -1,3 +1,4 @@
+import React from 'react'; 
 function FilmOrder({showtime, seats}) {
     if (!showtime || !showtime.movie_id || !showtime.screening_room_id || !showtime.screening_room_id.theater_id) {
         return null;

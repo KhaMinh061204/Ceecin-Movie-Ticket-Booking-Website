@@ -1,4 +1,5 @@
 import { Route, Routes, Navigate } from 'react-router-dom'
+import React from 'react'; 
 import './stylesheets/index.css'
 import Index from './pages'
 import SearchPage from './pages/searchPage'

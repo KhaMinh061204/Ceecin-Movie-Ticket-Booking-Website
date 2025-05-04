@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import $ from "jquery";
 import { useEffect } from "react";
-
+import React from 'react'; 
 function FimlPosterSlide(){
 
     var position = 0;

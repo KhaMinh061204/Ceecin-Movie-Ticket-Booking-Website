@@ -5,6 +5,7 @@ import { BookingContext } from "../Context"
 import CinemaSeat from "./CinemaSeat"
 import ConfirmSelectSeat from "./ConfirmSelectSeat"
 import './SelectSeatsResponsive.css'
+import React from 'react'; 
 
 function SelectSeats() {
   const { setSelectedSeats, setSelectedSeatIds } = useContext(BookingContext);

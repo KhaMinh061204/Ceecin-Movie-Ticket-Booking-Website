@@ -4,6 +4,7 @@ import FilmListFuture from "../components/film-list-future";
 import FilmListNow from "../components/film-list-now";
 import FimlPosterSlide from "../components/film_poster_slide";
 import { useEffect, useState } from "react";
+import React from 'react'; 
 
 function ContentFilmList(){
 
@@ -13,8 +14,7 @@ function ContentFilmList(){
         const fetchMovies=async()=>{
         try{
             const res=await getAllMovies();
-            console.log(res.movies)
-            setFilm(res.movies);
+            setFilm(res);
         }
         catch (error) {
             console.error("Error while fetching all movie: ",error )

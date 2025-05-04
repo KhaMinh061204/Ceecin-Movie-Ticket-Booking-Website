@@ -7,7 +7,7 @@ import Header from '../components/header'
 import Promolist from '../components/promotion_list'
 import { useLocation } from 'react-router-dom'
 import Navbar from '../components/nav-bar'
-
+import React from 'react'; 
 import { getPromotionInHompage } from '../api/api'
 
 function PhimSapChieu () {
@@ -44,10 +44,9 @@ function PhimSapChieu () {
     const fetchMovies = async () => {
       try {
         const res = await getAllMovies()
-        console.log(res.movies);
         const limit = [];
         for(var i = 0; i <=7 ; i++){
-          limit.push(res.movies[i]);
+          limit.push(res[i]);
         }
         setFilm(limit);
       } catch (error) {
@@ -82,7 +81,7 @@ function PhimSapChieu () {
                     key={d.id}
                     clickEvent={() => {}}
                     orderFilm={orderFilm}
-                    id={d.id}
+                    id={d._id}
                     img={d.poster_url}
                     type={d.gerne}
                     length={d.duration}

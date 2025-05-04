@@ -1,11 +1,11 @@
 import { faCamera, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState,useContext } from "react";
 import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from "react-router";
 import { get, postWithFile } from "../api/api";
 import {BookingContext} from "../BookingFlow_components/Context"
-import { useContext } from 'react';
+import React from 'react'; 
 
 const MENU_ITEMS = [
     { name: 'info', label: 'Thông tin cá nhân' },

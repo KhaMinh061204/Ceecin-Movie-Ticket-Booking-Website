@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfile.node
+    container_name: ceecine-node-server
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    env_file: ./backend/.env
+
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile.reactUI
+    container_name: ceecine-frontend
+    depends_on:
+      - backend
+    ports:
+      - "3001:3001"

@@ -56,6 +56,8 @@ export const BookingProvider = ({ children }) => {
       alert('Stripe chưa sẵn sàng!');
       return;
     }
+
+    
     const tickets = [
       {
         name: movieTitle,    
@@ -73,9 +75,23 @@ export const BookingProvider = ({ children }) => {
     }));
     const data = [FandB,tickets];
     const products=data.flat();
+
+    // Lưu thông tin đặt vé vào localStorage trước khi chuyển trang
+    const bookingData = {
+      movieTitle,
+      movieUrl,
+      selectedSeats,
+      selectedDate,
+      selectedTime,
+      selectedTheater,
+      fandb,
+    };
+
+    localStorage.setItem("bookingData", JSON.stringify(bookingData));
+
     if (isButtonDisabled) {
       try {
-        const response = await fetch('http://localhost:8081/booking/create-payment-intent', {
+        const response = await fetch('https://ceecine.onrender.com/booking/create-payment-intent', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

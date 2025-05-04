@@ -1,4 +1,5 @@
 import Comment from "./comment";
+import React from 'react'; 
 
 function OrderFilmComment(){
     return(
@@ -20,21 +21,6 @@ function OrderFilmComment(){
                         </h1>
                         <div className="flex gap10 ">
                             <div className="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 48 46" fill="white">
-                                    <path d="M24 0L18.3871 17.2746H0.223587L14.9182 27.9508L9.30537 45.2254L24 34.5491L38.6946 45.2254L33.0818 27.9508L47.7764 17.2746H29.6129L24 0Z" fill="#ffffff3d"/>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 48 46" fill="white">
-                                    <path d="M24 0L18.3871 17.2746H0.223587L14.9182 27.9508L9.30537 45.2254L24 34.5491L38.6946 45.2254L33.0818 27.9508L47.7764 17.2746H29.6129L24 0Z" fill="#ffffff3d"/>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 48 46" fill="white">
-                                    <path d="M24 0L18.3871 17.2746H0.223587L14.9182 27.9508L9.30537 45.2254L24 34.5491L38.6946 45.2254L33.0818 27.9508L47.7764 17.2746H29.6129L24 0Z" fill="#ffffff3d"/>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 48 46" fill="white">
-                                    <path d="M24 0L18.3871 17.2746H0.223587L14.9182 27.9508L9.30537 45.2254L24 34.5491L38.6946 45.2254L33.0818 27.9508L47.7764 17.2746H29.6129L24 0Z" fill="#ffffff3d"/>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 48 46" fill="white">
-                                    <path d="M24 0L18.3871 17.2746H0.223587L14.9182 27.9508L9.30537 45.2254L24 34.5491L38.6946 45.2254L33.0818 27.9508L47.7764 17.2746H29.6129L24 0Z" fill="#ffffff3d"/>
-                                </svg>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 48 46" fill="white">
                                     <path d="M24 0L18.3871 17.2746H0.223587L14.9182 27.9508L9.30537 45.2254L24 34.5491L38.6946 45.2254L33.0818 27.9508L47.7764 17.2746H29.6129L24 0Z" fill="#ffffff3d"/>
                                 </svg>
