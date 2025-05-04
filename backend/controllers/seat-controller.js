@@ -40,13 +40,6 @@ export const updateStatusSeat = async (req, res) => {
             // Không cho phép thay đổi trạng thái nếu ghế đã booked
             return res.status(400).json({ message: 'Cannot change status of booked seat' });
           }
-        } else if (action === 'confirm') {
-          if (seat.status === 'selected') {
-            // Chỉ chuyển sang booked nếu ghế đang ở trạng thái selected
-            newStatus = 'booked';
-          } else {
-            return res.status(400).json({ message: 'Seat must be selected before confirming' });
-          }
         } else {
           return res.status(400).json({ message: 'Invalid action' });
         }

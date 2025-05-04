@@ -24,7 +24,6 @@ export const BookingProvider = ({ children }) => {
   const [user, setUser] = useState({ name: "", avatar: "" });
   const [bookingId, setBookingId]=useState(null);
 
-  console.log("bookingId context", bookingId);
   const navigate=useNavigate()
   const totalCorn = () => {
     return Object.keys(order).reduce((total, itemId) => {
@@ -96,7 +95,7 @@ export const BookingProvider = ({ children }) => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ products, bookingId })
+          body: JSON.stringify({ products, bookingId,selectedSeatIds })
         });
   
         if (!response.ok) {
