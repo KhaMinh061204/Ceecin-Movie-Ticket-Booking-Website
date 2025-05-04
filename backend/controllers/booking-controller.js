@@ -184,7 +184,7 @@ export const payment = async (req, res) => {
             process.env.STRIPE_WEBHOOK_SECRET
           );
         } catch (err) {
-          console.error('❌ Webhook signature verification failed:', err.message);
+          console.error('Webhook signature verification failed:', err.message);
           return res.status(400).send(`Webhook Error: ${err.message}`);
         }
       
@@ -194,15 +194,15 @@ export const payment = async (req, res) => {
           const bookingId = session.metadata?.bookingId;
       
           if (!bookingId) {
-            console.warn("⚠️ Không có bookingId trong metadata.");
+            console.warn("Không có bookingId trong metadata.");
             return res.status(200).json({ received: true });
           }
       
           try {
             await BookingModel.findByIdAndUpdate(bookingId, { status: true });
-            console.log(`✅ Booking ${bookingId} đã được cập nhật là đã thanh toán.`);
+            console.log(`Booking ${bookingId} đã được cập nhật là đã thanh toán.`);
           } catch (err) {
-            console.error(`❌ Lỗi khi cập nhật booking ${bookingId}:`, err.message);
+            console.error(`Lỗi khi cập nhật booking ${bookingId}:`, err.message);
           }
         }
       

@@ -28,7 +28,12 @@ const app = express();
 const swaggerDocument = YAML.load("./swagger.yaml");
 
 app.use(cors());
-app.use(express.json());
+app.use((req, res, next) => {
+    if (req.originalUrl === '/booking/webhook') {
+      return next();
+    }
+    express.json()(req, res, next); // dùng express.json() cho các route khác
+  });
 
 const server = http.createServer(app);
 const io = new Server(server, {
