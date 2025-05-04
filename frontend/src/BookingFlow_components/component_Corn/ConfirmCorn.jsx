@@ -20,7 +20,7 @@ function ConfirmCorn() {
     formatCurrency,
     fandb,
     movieTitle,
-    movieUrl
+    movieUrl, setBookingId
   } = useContext(BookingContext);
 
   const navigate = useNavigate();
@@ -58,6 +58,8 @@ function ConfirmCorn() {
         ticket_ids: createdTicketIds,
         fandb_items: fandbItems,
       });
+      console.log("bookingId", bookingResponse.booking._id);
+      setBookingId(bookingResponse.booking._id);
       // alert("Tiếp tục thanh toán!");
       navigate("/payment");
     } catch (error) {

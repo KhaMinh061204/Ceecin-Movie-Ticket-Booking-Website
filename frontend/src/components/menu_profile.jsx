@@ -5,6 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useLocation, useNavigate } from "react-router";
 import { get, postWithFile } from "../api/api";
 import {BookingContext} from "../BookingFlow_components/Context"
+import { useContext } from 'react';
 
 const MENU_ITEMS = [
     { name: 'info', label: 'Thông tin cá nhân' },

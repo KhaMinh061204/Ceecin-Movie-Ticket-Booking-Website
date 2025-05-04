@@ -22,7 +22,9 @@ export const BookingProvider = ({ children }) => {
   const [cardElement, setCardElement] = useState(null);
   const [elements, setElements] = useState(null);
   const [user, setUser] = useState({ name: "", avatar: "" });
+  const [bookingId, setBookingId]=useState(null);
 
+  console.log("bookingId context", bookingId);
   const navigate=useNavigate()
   const totalCorn = () => {
     return Object.keys(order).reduce((total, itemId) => {
@@ -78,7 +80,7 @@ export const BookingProvider = ({ children }) => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({products}),
+          body: JSON.stringify({ products, bookingId })
         });
   
         if (!response.ok) {
@@ -161,7 +163,7 @@ export const BookingProvider = ({ children }) => {
         stripe, setStripe,
         cardElement, setCardElement,
         setElements,
-        user, setUser
+        user, setUser, setBookingId
       }}
     >
       {children}
