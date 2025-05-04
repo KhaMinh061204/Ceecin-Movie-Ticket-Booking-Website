@@ -12,6 +12,7 @@ import FoodRouter from "./routers/food-router.js";
 import TheaterRouter from "./routers/theater-router.js";
 import bookingRouter from "./routers/booking-router.js";
 import ticketRouter from "./routers/ticket-router.js";
+import webhookRouter from "./routers/webhook-router.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import swaggerUi from "swagger-ui-express";
@@ -28,12 +29,9 @@ const app = express();
 const swaggerDocument = YAML.load("./swagger.yaml");
 
 app.use(cors());
-app.use((req, res, next) => {
-    if (req.originalUrl === '/booking/webhook') {
-      return next();
-    }
-    express.json()(req, res, next); // dùng express.json() cho các route khác
-  });
+app.use('/booking', webhookRouter);
+
+app.use(express.json());
 
 const server = http.createServer(app);
 const io = new Server(server, {
