@@ -29,7 +29,7 @@ const app = express();
 const swaggerDocument = YAML.load("./swagger.yaml");
 
 app.use(cors());
-app.use('/booking', webhookRouter);
+app.use('/webhook', webhookRouter);
 
 app.use(express.json());
 
