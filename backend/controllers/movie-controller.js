@@ -8,7 +8,6 @@ export const getAllMovies = async (req, res, next) => {
     try {
       const cachedMovie=await redisClient.get("movie:list:all");
       if (cachedMovie){
-        console.log("lấy ds fim từ cache");
         const userData=JSON.parse(cachedMovie);
         return res.status(200).json(userData);
       }
