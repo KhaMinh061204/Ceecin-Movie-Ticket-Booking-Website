@@ -7,7 +7,7 @@ Ceecin Movie Ticket Booking Website là một website giúp người dùng dễ 
 - 📅 Xem thông tin và lịch chiếu phim
 - 🎟 Đặt vé trực tuyến, chọn ghế ngồi
 - 🔍 Tìm kiếm phim theo thể loại, tên phim
-- 👤 Quản lý tài khoản người dùng
+- 👤 Quản lý tài khoản người dùng 
   
 ## Công nghệ sử dụng
 - **Frontend**: ReactJS, Tailwind CSS
