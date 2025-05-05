@@ -26,7 +26,7 @@ export const BookingProvider = ({ children }) => {
   const [couponCode, setCouponCode] = useState('');
   const [discountAmount, setDiscountAmount] = useState(0);
   const navigate=useNavigate();
-  console.log("code",couponCode);
+
   const totalCorn = () => {
     return Object.keys(order).reduce((total, itemId) => {
       const item = order[itemId];
@@ -34,7 +34,7 @@ export const BookingProvider = ({ children }) => {
       return total;
     }, 0);
   };
-
+  console.log(selectedSeatIds);
   function convertDateFormat(dateString) {
     const parts = dateString.split('-'); // Tách chuỗi theo dấu '-'
     return `${parts[2]}/${parts[1]}/${parts[0]}`; // Đổi thứ tự thành ngày/tháng/năm
@@ -62,7 +62,7 @@ export const BookingProvider = ({ children }) => {
         name: movieTitle,    
         image: movieUrl,    // URL ảnh vé
         quantity: selectedSeats.length,   // số lượng vé
-        price: seatPrice,    // giá 1 vé (USD hoặc VND *100)
+        price: seatPrice,    
       }
     ];
     const FandB = fandb.map(item => ({
