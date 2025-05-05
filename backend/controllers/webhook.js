@@ -1,4 +1,5 @@
 import BookingModel from "../models/booking-model.js";
+import SeatModel from "../models/seat-model.js";
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -29,6 +30,7 @@ export const handleStripeWebhook = async (req, res) => {
   
       try {
         await BookingModel.findByIdAndUpdate(bookingId, { status: true });
+        await SeatModel.findByIdAndUpdate(seatId, { status: 'booked' });
         console.log(`Booking ${bookingId} đã được cập nhật là đã thanh toán.`);
       } catch (err) {
         console.error(`Lỗi khi cập nhật booking ${bookingId}:`, err.message);

@@ -39,7 +39,7 @@ export const createTicket = async (req, res) => {
         const savedTicket = await ticket.save();
 
         // Cập nhật trạng thái ghế
-        seat.status = "booked";
+        seat.status = "selected";
         await seat.save();
 
         return res.status(201).json({

@@ -3,14 +3,12 @@ import avengerposter from '../../assets/img/avengerposter.jpg';
 import { useNavigate } from "react-router";
 import { BookingContext } from "../Context";
 import { useContext, useState } from "react";
-import { createTicket, createBooking } from "../../api/api";
+import { createBooking } from "../../api/api";
 import React from 'react'; 
 
 function ConfirmCorn() {
   const {
     selectedSeats,
-    selectedSeatIds,
-    selectedShowtimeId,
     seatPrice,
     selectedTheater,
     selectedTime,
@@ -21,7 +19,8 @@ function ConfirmCorn() {
     formatCurrency,
     fandb,
     movieTitle,
-    movieUrl, setBookingId
+    movieUrl, setBookingId,
+    createdTicketIds
   } = useContext(BookingContext);
 
   const navigate = useNavigate();
@@ -34,32 +33,12 @@ function ConfirmCorn() {
   const handleNext = async () => {
     try {
       setLoading(true);
-
-      // Tạo ticket cho từng ghế
-      const createdTicketIds = [];
-      for (const seat of selectedSeatIds) {
-        try {
-          const ticketResponse = await createTicket({
-            seat_id: seat, // `seat` là ID của ghế
-            showtime_id: selectedShowtimeId,
-          });
-          createdTicketIds.push(ticketResponse.ticket._id);
-        } catch (error) {
-          console.error(`Error creating ticket for seat ${seat}:`, error.response?.data || error.message);
-        }
-      }
-      console.log('create',createdTicketIds)
-      if (createdTicketIds.length === 0) {
-        throw new Error("Không thể tạo vé. Vui lòng kiểm tra lại thông tin.");
-      }
-
       // Tạo booking
       const fandbItems = Object.values(fandb).filter((item) => item.quantity > 0);
       const bookingResponse = await createBooking({
         ticket_ids: createdTicketIds,
         fandb_items: fandbItems,
       });
-      console.log("bookingId", bookingResponse.booking._id);
       setBookingId(bookingResponse.booking._id);
       // alert("Tiếp tục thanh toán!");
       navigate("/payment");

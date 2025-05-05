@@ -25,6 +25,7 @@ export const BookingProvider = ({ children }) => {
   const [bookingId, setBookingId]=useState(null);
   const [couponCode, setCouponCode] = useState('');
   const [discountAmount, setDiscountAmount] = useState(0);
+  const [createdTicketIds,setCreatedTicketIds]=useState([]);
   const navigate=useNavigate();
 
   const totalCorn = () => {
@@ -34,7 +35,6 @@ export const BookingProvider = ({ children }) => {
       return total;
     }, 0);
   };
-  console.log(selectedSeatIds);
   function convertDateFormat(dateString) {
     const parts = dateString.split('-'); // Tách chuỗi theo dấu '-'
     return `${parts[2]}/${parts[1]}/${parts[0]}`; // Đổi thứ tự thành ngày/tháng/năm
@@ -95,7 +95,7 @@ export const BookingProvider = ({ children }) => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ products, bookingId , couponCode})
+          body: JSON.stringify({ products, bookingId , couponCode,selectedSeatIds})
         });
         
         if (!response.ok) {
@@ -177,7 +177,8 @@ export const BookingProvider = ({ children }) => {
         cardElement, setCardElement,
         setElements,
         user, setUser, setBookingId,
-        couponCode, setCouponCode
+        couponCode, setCouponCode,
+        createdTicketIds,setCreatedTicketIds
       }}
     >
       {children}

@@ -37,17 +37,14 @@ function Showtime() {
     setSelectedTime(time);
     setSelectedRoomId(roomId);
     setSelectedShowtimeId(showtimeId);
-    console.log("Theater selected:", theater);
-    console.log("Time selected:", time);
-    console.log("Room ID selected:", roomId);
-    console.log("Showtime selected:", showtimeId);
+    // console.log("Theater selected:", theater);
+    // console.log("Time selected:", time);
+    // console.log("Room ID selected:", roomId);
+    // console.log("Showtime selected:", showtimeId);
   };
 
   const handleDateSelect = (selectedDayData) => {
-    console.log("Thứ đã chọn:", selectedDayData.day);
-    console.log("Ngày đã chọn:", selectedDayData.date);
-    setSelectedDate(selectedDayData);
-    console.log('Updated:', selectedDate); // Cập nhật thông tin ngày đã chọn vào state
+    setSelectedDate(selectedDayData);// Cập nhật thông tin ngày đã chọn vào state
   };
 
   return (

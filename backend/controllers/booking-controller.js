@@ -140,7 +140,7 @@ const stripe = new Stripe ( process.env.STRIPE_SECRET_KEY);
 // Thanh toán
 export const payment = async (req, res) => {
     try {
-        const { products, bookingId, couponCode } = req.body;
+        const { products, bookingId, couponCode, selectedSeatIds } = req.body;
 
         //Danh sách sản phẩm
         const lineItems = products.map((product) => ({
@@ -181,6 +181,7 @@ export const payment = async (req, res) => {
             cancel_url: 'https://ceecine.vercel.app/cancel',
             metadata: {
                 bookingId: bookingId,
+                seatId:selectedSeatIds
             },
         });
 
