@@ -181,7 +181,7 @@ export const payment = async (req, res) => {
             cancel_url: 'https://ceecine.vercel.app/cancel',
             metadata: {
                 bookingId: bookingId,
-                seatId:selectedSeatIds
+                seatId:selectedSeatIds.join(',')
             },
         });
 
