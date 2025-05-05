@@ -23,8 +23,10 @@ export const BookingProvider = ({ children }) => {
   const [elements, setElements] = useState(null);
   const [user, setUser] = useState({ name: "", avatar: "" });
   const [bookingId, setBookingId]=useState(null);
-
-  const navigate=useNavigate()
+  const [couponCode, setCouponCode] = useState('');
+  const [discountAmount, setDiscountAmount] = useState(0);
+  const navigate=useNavigate();
+  console.log("code",couponCode);
   const totalCorn = () => {
     return Object.keys(order).reduce((total, itemId) => {
       const item = order[itemId];
@@ -32,8 +34,6 @@ export const BookingProvider = ({ children }) => {
       return total;
     }, 0);
   };
-
-  const [discountAmount, setDiscountAmount] = useState(0);
 
   function convertDateFormat(dateString) {
     const parts = dateString.split('-'); // Tách chuỗi theo dấu '-'
@@ -95,9 +95,9 @@ export const BookingProvider = ({ children }) => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ products, bookingId,selectedSeatIds })
+          body: JSON.stringify({ products, bookingId , couponCode})
         });
-  
+        
         if (!response.ok) {
           const errorText = await response.text();
           console.error('Server trả lỗi:', errorText);
@@ -128,8 +128,6 @@ export const BookingProvider = ({ children }) => {
       alert('Vui lòng điền đầy đủ thông tin!');
     }
   };
-  
-  
 
   const handleConfirmClose = () => {
     setIsConfirmPopupOpen(false); // Đóng popup xác nhận
@@ -178,7 +176,8 @@ export const BookingProvider = ({ children }) => {
         stripe, setStripe,
         cardElement, setCardElement,
         setElements,
-        user, setUser, setBookingId
+        user, setUser, setBookingId,
+        couponCode, setCouponCode
       }}
     >
       {children}

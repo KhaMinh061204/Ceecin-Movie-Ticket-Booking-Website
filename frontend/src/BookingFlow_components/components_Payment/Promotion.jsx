@@ -5,13 +5,13 @@ import './Promotion.css';
 import VoucherCardList from './VoucherCardList';
 
 const Promotion = () => {
-  const { discountInput, setDiscountInput } = useContext(BookingContext);
+  const { discountInput, setDiscountInput, couponCode, setCouponCode } = useContext(BookingContext);
   const [title, setTitle] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleCouponApply = async () => {
     try {
-      const res = await checkCoupon(title);  // Gọi API checkCoupon 
+      const res = await checkCoupon(couponCode);  // Gọi API checkCoupon 
       setDiscountInput(res.balance); // Gán giá trị từ API response
       alert('Áp dụng mã giảm giá thành công!'); // Hiển thị thông báo thành công
         setErrorMessage(res.message); // Hiển thị thông báo lỗi nếu coupon không hợp lệ
@@ -29,8 +29,8 @@ const Promotion = () => {
           type="text"
           placeholder="Mã giảm giá"
           className="promo-input"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={couponCode}
+          onChange={(e) => setCouponCode(e.target.value)}
         />
         <button className="apply-button" onClick={handleCouponApply}>Áp dụng</button>
       </div>
