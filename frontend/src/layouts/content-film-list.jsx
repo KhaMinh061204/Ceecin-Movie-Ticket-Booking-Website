@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { getAllMovies } from "../api/api";
+import { getAllMovies, getMoviesInHomepage } from "../api/api";
 import FilmListFuture from "../components/film-list-future";
 import FilmListNow from "../components/film-list-now";
 import FimlPosterSlide from "../components/film_poster_slide";
@@ -13,7 +13,7 @@ function ContentFilmList(){
     useEffect(()=>{
         const fetchMovies=async()=>{
         try{
-            const res=await getAllMovies();
+            const res=await getMoviesInHomepage();
             setFilm(res);
         }
         catch (error) {
