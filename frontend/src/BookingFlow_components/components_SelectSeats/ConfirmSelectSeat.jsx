@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BookingContext } from "../Context";
+import { createTicket } from "../../api/api.js";
 import "./confirmselectseat.css";
 
 function ConfirmSelectSeat() {
@@ -12,6 +13,9 @@ function ConfirmSelectSeat() {
     movieTitle,
     movieUrl,
     selectedSeats = [],
+    selectedSeatIds,
+    selectedShowtimeId,
+    createdTicketIds,setCreatedTicketIds,
     ticketPrice = 70000 // Default price in VND
   } = useContext(BookingContext);
   
@@ -21,13 +25,33 @@ function ConfirmSelectSeat() {
     navigate(-1);
   };
   
-  const handleNext = () => {
-    if(selectedSeats.length > 0) {
-      navigate("/cornpage"); // Navigate to payment page
-    } else {
-      alert('Bạn chưa chọn ghế!');
+  const handleNext = async () => {
+    try {
+      if (selectedSeats.length > 0) {
+        // Tạo ticket cho từng ghế
+
+        for (const seat of selectedSeatIds) {
+          try {
+            const ticketResponse = await createTicket({
+              seat_id: seat, // `seat` là ID của ghế
+              showtime_id: selectedShowtimeId,
+            });
+            createdTicketIds.push(ticketResponse.ticket._id);
+          } catch (error) {
+            console.error(`Error creating ticket for seat ${seat}:`, error.response?.data || error.message);
+          }
+        }
+  
+        navigate("/cornpage");
+      } else {
+        alert('Bạn chưa chọn ghế!');
+      }
+    } catch (error) {
+      console.error("Lỗi trong handleNext:", error);
+      alert(error.message || "Đã xảy ra lỗi. Vui lòng thử lại.");
     }
   };
+  
   
   const totalAmount = selectedSeats.length * ticketPrice;
   

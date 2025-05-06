@@ -22,8 +22,12 @@ export const BookingProvider = ({ children }) => {
   const [cardElement, setCardElement] = useState(null);
   const [elements, setElements] = useState(null);
   const [user, setUser] = useState({ name: "", avatar: "" });
+  const [bookingId, setBookingId]=useState(null);
+  const [couponCode, setCouponCode] = useState('');
+  const [discountAmount, setDiscountAmount] = useState(0);
+  const [createdTicketIds,setCreatedTicketIds]=useState([]);
+  const navigate=useNavigate();
 
-  const navigate=useNavigate()
   const totalCorn = () => {
     return Object.keys(order).reduce((total, itemId) => {
       const item = order[itemId];
@@ -31,9 +35,6 @@ export const BookingProvider = ({ children }) => {
       return total;
     }, 0);
   };
-
-  const [discountAmount, setDiscountAmount] = useState(0);
-
   function convertDateFormat(dateString) {
     const parts = dateString.split('-'); // Tách chuỗi theo dấu '-'
     return `${parts[2]}/${parts[1]}/${parts[0]}`; // Đổi thứ tự thành ngày/tháng/năm
@@ -61,7 +62,7 @@ export const BookingProvider = ({ children }) => {
         name: movieTitle,    
         image: movieUrl,    // URL ảnh vé
         quantity: selectedSeats.length,   // số lượng vé
-        price: seatPrice,    // giá 1 vé (USD hoặc VND *100)
+        price: seatPrice,    
       }
     ];
     const FandB = fandb.map(item => ({
@@ -94,9 +95,9 @@ export const BookingProvider = ({ children }) => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({products}),
+          body: JSON.stringify({ products, bookingId , couponCode,selectedSeatIds})
         });
-  
+        
         if (!response.ok) {
           const errorText = await response.text();
           console.error('Server trả lỗi:', errorText);
@@ -127,8 +128,6 @@ export const BookingProvider = ({ children }) => {
       alert('Vui lòng điền đầy đủ thông tin!');
     }
   };
-  
-  
 
   const handleConfirmClose = () => {
     setIsConfirmPopupOpen(false); // Đóng popup xác nhận
@@ -177,7 +176,9 @@ export const BookingProvider = ({ children }) => {
         stripe, setStripe,
         cardElement, setCardElement,
         setElements,
-        user, setUser
+        user, setUser, setBookingId,
+        couponCode, setCouponCode,
+        createdTicketIds,setCreatedTicketIds
       }}
     >
       {children}

@@ -8,7 +8,7 @@ import Stripe from "stripe";
 export const createBooking = async (req, res) => {
     const { ticket_ids, fandb_items } = req.body;
     const accountId = req.user.id;
-    console.log(accountId);
+
     if (!mongoose.Types.ObjectId.isValid(accountId)) {
         return res.status(400).json({ status: false, message: "Invalid Account ID" });
       }
@@ -89,7 +89,7 @@ export const getBooking = async (req, res) => {
         const userId = account._id;
 
         // Lấy danh sách các booking của user
-        const bookings = await BookingModel.find({ user_id: userId })
+        const bookings = await BookingModel.find({ user_id: userId, status:true })
             .populate({
                 path: "ticket_id",
                 populate: [
@@ -137,32 +137,57 @@ export const getBooking = async (req, res) => {
 };
 
 const stripe = new Stripe ( process.env.STRIPE_SECRET_KEY);
+// Thanh toán
 export const payment = async (req, res) => {
-    try{
-      const { products } = req.body; 
-      console.log(products);
-      const lineItems = products.map((product) => ({
-      price_data: {
-        currency: 'VND',
-        product_data: {
-          name: product.name,
-          images: [product.image],  // Đảm bảo images là mảng
-        },
-        unit_amount: product.price,  // Chuyển đổi VND sang cent
-      },
-      quantity: product.quantity,
-    }));
-      console.log("item",lineItems)
+    try {
+        const { products, bookingId, couponCode, selectedSeatIds } = req.body;
+
+        //Danh sách sản phẩm
+        const lineItems = products.map((product) => ({
+            price_data: {
+                currency: 'VND',
+                product_data: {
+                    name: product.name,
+                    images: [product.image],
+                },
+                unit_amount: product.price,
+            },
+            quantity: product.quantity,
+        }));
+
+        let discounts = [];
+
+        // Nếu có couponCode từ frontend → kiểm tra trên Stripe
+        if (couponCode) {
+            const promotionCodes = await stripe.promotionCodes.list({
+                code: couponCode,
+                active: true,
+                limit: 1,
+            });
+
+            if (promotionCodes.data.length > 0) {
+                discounts.push({ promotion_code: promotionCodes.data[0].id });
+            } else {
+                return res.status(400).json({ error: 'Mã giảm giá không hợp lệ' });
+            }
+        }
+
         const session = await stripe.checkout.sessions.create({
-          payment_method_types: ['card'],
-          line_items: lineItems,
-          mode: 'payment', 
-          success_url: 'https://ceecine.vercel.app/success',  
-          cancel_url: 'https://ceecine.vercel.app/cancel',   
+            payment_method_types: ['card'],
+            line_items: lineItems,
+            mode: 'payment',
+            discounts: discounts, // Chỉ thêm nếu có mã giảm giá hợp lệ
+            success_url: 'https://ceecine.vercel.app/success',
+            cancel_url: 'https://ceecine.vercel.app/cancel',
+            metadata: {
+                bookingId: bookingId,
+                seatId:selectedSeatIds.join(',')
+            },
         });
-        res.json({ sessionId: session.id });  
-      } catch (error) {
-        console.log(error);
+
+        res.json({ sessionId: session.id });
+    } catch (error) {
         res.status(500).send('Lỗi khi tạo session thanh toán');
-      }
-    };
+        console.error("Lỗi khi tạo session thanh toán:", error);
+    }
+};

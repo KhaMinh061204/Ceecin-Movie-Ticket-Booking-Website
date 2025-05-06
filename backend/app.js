@@ -12,12 +12,14 @@ import FoodRouter from "./routers/food-router.js";
 import TheaterRouter from "./routers/theater-router.js";
 import bookingRouter from "./routers/booking-router.js";
 import ticketRouter from "./routers/ticket-router.js";
+import webhookRouter from "./routers/webhook-router.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
 import http from "http";
 import { Server } from "socket.io";
+import startReleaseUnpaidSeatsJob from './jobs/releaseUnpaidSeats.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,6 +30,8 @@ const app = express();
 const swaggerDocument = YAML.load("./swagger.yaml");
 
 app.use(cors());
+app.use('/webhook', webhookRouter);
+
 app.use(express.json());
 
 const server = http.createServer(app);
@@ -37,7 +41,7 @@ const io = new Server(server, {
   }
 });
 
-
+startReleaseUnpaidSeatsJob();
 mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.1qcpp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
     .then(() =>
         server.listen(8081, () => {
