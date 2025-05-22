@@ -15,7 +15,7 @@ const sitemap = new SitemapStream({ hostname: 'https://ceecine.vercel.app' });
 
 streamToPromise(sitemap)
   .then((data) => {
-      return writeFile('./sitemap.xml', data.toString());
+      return writeFile('./public/sitemap.xml', data.toString());
     })
   .then(() => {
     console.log('✅ Sitemap created!');
